@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <script src="./script.js"></script>
+     <div id="gameContainer">
+        <div id="menu" class="screen active">
+            <div class="title">
+                <h1>Сон Разлома</h1>
+                <h2>Dreamrift</h2>
+            </div>
+            <div class="menu-buttons">
+                <button id="startBtn" class="menu-btn">Начать игру</button>
+                <button id="storyBtn" class="menu-btn">История</button>
+                <button id="controlsBtn" class="menu-btn">Управление</button>
+                <button class="menu-btn" id="levelSelectBtn">Выбрать уровень</button>
+            </div>
+        </div>
+
+        <div id="storyScreen" class="screen">
+            <div class="story-content">
+                <h2>История</h2>
+                <p>Ты играешь за девочку по имени Лия, которая впала в кому после аварии. Пока её тело лежит в больнице, её сознание застряло в "Разломе" — месте между сном и реальностью.</p>
+                <p>Разлом начал разрушаться: ночные кошмары ворвались в её мир грёз, а обрывки воспоминаний всплывают в виде загадок и образов.</p>
+                <p>Лия должна пройти сквозь 7 уровней, каждый из которых — это фрагмент её памяти.</p>
+                <button id="backToMenuBtn" class="menu-btn">Назад в меню</button>
+            </div>
+        </div>
+
+        <div id="controlsScreen" class="screen">
+            <div class="controls-content">
+                <h2>Управление</h2>
+                <ul>
+                    <li><strong>A/D</strong> или <strong>←/→</strong> - Движение влево/вправо</li>
+                    <li><strong>Пробел</strong> - Прыжок</li>
+                    <li><strong>E</strong> - Взаимодействие</li>
+                    <li><strong>R</strong> - Перезапуск уровня</li>
+                    <li><strong>ESC</strong> - Пауза</li>
+                </ul>
+                <button id="backToMenuBtn2" class="menu-btn">Назад в меню</button>
+            </div>
+        </div>
+
+        <div id="gameScreen" class="screen">
+            <canvas id="gameCanvas" width="1200" height="800"></canvas>
+            <div id="ui">
+                <div id="levelInfo">
+                    <span id="levelName">Комната детства</span>
+                    <span id="memoryFragments">Фрагменты памяти: 0/3</span>
+                </div>
+                <div id="dialogBox" class="hidden">
+                    <p id="dialogText"></p>
+                    <button id="dialogNext">Далее</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="pauseScreen" class="screen">
+            <div class="pause-content">
+                <h2>Пауза</h2>
+                <button id="resumeBtn" class="menu-btn">Продолжить</button>
+                <button id="restartBtn" class="menu-btn">Перезапустить</button>
+                <button id="mainMenuBtn" class="menu-btn">Главное меню</button>
+            </div>
+        </div>
+
+        <div id="levelSelectScreen" class="screen">
+            <div class="controls-content">
+                <h2>Выбор уровня</h2>
+                <div id="levelButtons"></div>
+                <button class="menu-btn" id="backToMenuBtn3">В меню</button>
+            </div>
+        </div>
+
+        <div id="noteModal" style="display:none; position:fixed; z-index:1000; left:0; top:0; width:100vw; height:100vh; background:rgba(20,20,40,0.7); justify-content:center; align-items:center;">
+          <div style="background:linear-gradient(135deg,#ff1744 0%,#ff9100 100%); color:#222; border-radius:12px; padding:2rem 2.5rem; box-shadow:0 8px 32px rgba(0,0,0,0.3); max-width:90vw; text-align:center; font-size:1.3rem;">
+            <div style="margin-bottom:1.5rem; font-weight:bold;">Записка</div>
+            <div style="margin-bottom:1.5rem;">Дойди до конца уровня и увидишь сюрприз!</div>
+            <button id="closeNoteBtn" class="menu-btn" style="margin-top:0.5rem; color:#111;">Понятно</button>
+          </div>
+        </div>
+
+        <div id="touchControls">
+          <div class="controls-container">
+            <button id="btnLeft" class="touch-btn">&#8592;</button>
+            <div class="jump-container">
+              <button id="btnJump" class="touch-btn">&#8593;</button>
+            </div>
+            <button id="btnRight" class="touch-btn">&#8594;</button>
+          </div>
+        </div>
+    </div>
+
+
+</body>
+</html>
